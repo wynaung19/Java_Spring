@@ -1,8 +1,9 @@
-package com.waiyannaung.sku;
+package com.waiyannaung.sku.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import com.waiyannaung.sku.model.service.TestService;
 
 @Controller
 public class SkuController {
