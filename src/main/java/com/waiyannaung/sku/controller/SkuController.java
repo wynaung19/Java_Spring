@@ -1,12 +1,26 @@
 package com.waiyannaung.sku.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.waiyannaung.sku.model.domain.TestDB;
 import com.waiyannaung.sku.model.service.TestService;
 
 @Controller
 public class SkuController {
+    @Autowired
+    TestService testService;
+
+    @GetMapping("/testdb")
+    public String getAllTestDBs(Model model) {
+        TestDB test = testService.findByName("WaiYan");
+        model.addAttribute("data4", test);
+        System.out.println("Data 4 : " + test);
+        return "testdb";
+    }
+
     @GetMapping("/w")
     public String hello(Model model) {
         model.addAttribute("data", "방갑습니다.");
