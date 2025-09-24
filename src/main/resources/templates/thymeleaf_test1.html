@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test 1</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <p>Data 1 : <span th:utext="${data1}">message</span></p>
+      <input type="text" th:value="${data2}" name="data2" /> <br />
+
+      <input
+        type="checkbox"
+        th:field="*{data2}"
+        th:value="true"
+        name="data21"
+      />
+      동의합니다.<br />
+
+      <p>
+        <a th:href="@{/posts/(id=${link})}">글 상세보기</a>
+      </p>
+      <hr />
+      <div th:with="first=${name}">
+        <p>first is defined as name here = <span th:text="${first}"></span></p>
+        •
+        <div>
+          <a
+            th:href="@{/products/detail/(productId=${para1}, productId=${para2})}"
+            >Link</a
+          >
+          <input type="submit" value="전송" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
