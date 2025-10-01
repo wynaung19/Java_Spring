@@ -15,7 +15,7 @@ public class SkuController {
 
     @GetMapping("/testdb")
     public String getAllTestDBs(Model model) {
-        TestDB test = testService.findByName("WaiYan");
+        TestDB test = testService.findByName("Naung");
         model.addAttribute("data4", test);
         System.out.println("Data 4 : " + test);
         return "testdb";
