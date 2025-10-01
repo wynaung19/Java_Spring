@@ -21,6 +21,11 @@ public class SkuController {
         return "testdb";
     }
 
+    // @GetMapping("/article_list")
+    // public String article_list() {
+    // return "article_list";
+    // }
+
     @GetMapping("/w")
     public String hello(Model model) {
         model.addAttribute("data", "방갑습니다.");
