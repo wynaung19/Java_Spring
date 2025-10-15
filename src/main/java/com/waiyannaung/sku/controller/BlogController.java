@@ -37,7 +37,7 @@ public class BlogController {
             // 처리할 로직 추가 (예: 오류 페이지로 리다이렉트, 예외 처리 등)
             return "error_page/article_error"; // 오류 처리 페이지로 연결
         }
-        return "article_edit"; // .HTML 연결
+        return "article_edit";
     }
 
     @PutMapping("/api/article_edit/{id}")
