@@ -11,37 +11,39 @@ This repository contains a **Spring Boot web application** that combines a **por
 The goal of this project is to **learn how Java Spring works in real practice** — including MVC structure, data handling, and integration with a database.
 
 The home page displays **my personal portfolio**, while the post system allows:
-- ✏️ Creating new posts  
-- 🧾 Viewing post details  
-- 🧰 Editing or deleting posts  
-- 💾 Storing data using **SQLite**  
+
+- ✏️ Creating new posts
+- 🧾 Viewing post details
+- 🧰 Editing or deleting posts
+- 💾 Storing data using **SQLite**
 
 ---
 
 ## ⚙️ Tech Stack
 
-| Layer | Technologies |
-|-------|---------------|
-| **Backend** | Java, Spring Boot, Spring MVC |
-| **Frontend** | Thymeleaf, Bootstrap, Tailwind CSS, Animate.css |
+| Layer            | Technologies                                                                   |
+| ---------------- | ------------------------------------------------------------------------------ |
+| **Backend**      | Java, Spring Boot, Spring MVC                                                  |
+| **Frontend**     | Thymeleaf, Bootstrap, Tailwind CSS, Animate.css                                |
 | **JS Libraries** | CounterUp, Easing, Isotope, Lightbox, OwlCarousel, Typed.js, Waypoints, WOW.js |
-| **Database** | SQLite |
-| **IDE / Tools** | Visual Studio Code, Git, GitHub |
+| **Database**     | SQLite                                                                         |
+| **IDE / Tools**  | Visual Studio Code, Git, GitHub                                                |
 
 ---
 
-## 😎  Features
+## 😎 Features
 
-- 🧍 Portfolio as the home page  
-- 🗂️ Simple post board (CRUD operations)  
-- 🗃️ Data stored in SQLite  
-- 🎨 Responsive front-end with modern animations  
-- 🧱 Follows MVC architecture pattern  
+- 🧍 Portfolio as the home page
+- 🗂️ Simple post board (CRUD operations)
+- 🗃️ Data stored in SQLite
+- 🎨 Responsive front-end with modern animations
+- 🧱 Follows MVC architecture pattern
 - 🚀 Can be run directly from VS Code
 
 ---
 
 ## 🧰 Project Structure
+
 ```
 Java_Spring/
 ├── src/
@@ -54,8 +56,8 @@ Java_Spring/
 ├── build.gradle or pom.xml
 ├── README.md
 └── .gitignore
-
 ```
+
 ---
 
 ## 🚀 Run Locally
@@ -63,11 +65,13 @@ Java_Spring/
 You can easily run this project using **Visual Studio Code**.
 
 ### Prerequisites
-- Install **Java JDK (17 or higher)**  
-- Install **VS Code** and **Spring Boot Extension Pack**  
+
+- Install **Java JDK (17 or higher)**
+- Install **VS Code** and **Spring Boot Extension Pack**
 - Clone this repository
 
 ### Steps
+
 ```bash
 # 1️⃣ Clone the repository
 git clone https://github.com/wynaung19/Java_Spring.git
@@ -76,7 +80,14 @@ git clone https://github.com/wynaung19/Java_Spring.git
 cd Java_Spring
 
 # 3️⃣ Run the project
-# Use VS Code Spring Boot Dashboard or:
+# Use VS Code Spring Boot Dashboard
+#extensions :
+- cweijan.dbclient-jdbc
+- cweijan.vscode-mysql-client2
+- vmware.vscode-boot-dev-pack
+- vscjava.vscode-java-pack
+#or:
 ./gradlew bootRun
 # or if using Maven:
 mvn spring-boot:run
+```
