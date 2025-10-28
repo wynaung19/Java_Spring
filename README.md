@@ -70,9 +70,9 @@ You can easily run this project using **Visual Studio Code**.
 - Install **VS Code** and **Spring Boot Extension Pack**
 - Clone this repository
 
-### Steps
+# Steps
 
-# Extensions :
+### Extensions :
 
 - cweijan.dbclient-jdbc
 - cweijan.vscode-mysql-client2
