@@ -72,6 +72,13 @@ You can easily run this project using **Visual Studio Code**.
 
 ### Steps
 
+# Extensions :
+
+- cweijan.dbclient-jdbc
+- cweijan.vscode-mysql-client2
+- vmware.vscode-boot-dev-pack
+- vscjava.vscode-java-pack
+
 ```bash
 # 1️⃣ Clone the repository
 git clone https://github.com/wynaung19/Java_Spring.git
@@ -80,12 +87,9 @@ git clone https://github.com/wynaung19/Java_Spring.git
 cd Java_Spring
 
 # 3️⃣ Run the project
+# make sure you already done setting up database
 # Use VS Code Spring Boot Dashboard
-#extensions :
-- cweijan.dbclient-jdbc
-- cweijan.vscode-mysql-client2
-- vmware.vscode-boot-dev-pack
-- vscjava.vscode-java-pack
+open dashboard and click run
 #or:
 ./gradlew bootRun
 # or if using Maven:
