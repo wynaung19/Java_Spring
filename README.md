@@ -5,21 +5,21 @@
 
 ---
 
-## 💡 About the Project
+## About the Project
 
 This repository contains a **Spring Boot web application** that combines a **portfolio website** and a **simple post board** (`게시판`).  
-The goal of this project is to **learn how Java Spring works in real practice** — including MVC structure, data handling, and integration with a database.
+The goal of this project is to **learn how Java Spring works in real practice** including MVC structure, data handling, and integration with a database.
 
 The home page displays **my personal portfolio**, while the post system allows:
 
-- ✏️ Creating new posts
-- 🧾 Viewing post details
-- 🧰 Editing or deleting posts
-- 💾 Storing data using **SQLite**
+- Creating new posts
+- Viewing post details
+- Editing or deleting posts
+- Storing data using **SQLite**
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 | Layer            | Technologies                                                                   |
 | ---------------- | ------------------------------------------------------------------------------ |
@@ -31,18 +31,18 @@ The home page displays **my personal portfolio**, while the post system allows:
 
 ---
 
-## 😎 Features
+## Features
 
-- 🧍 Portfolio as the home page
-- 🗂️ Simple post board (CRUD operations)
-- 🗃️ Data stored in SQLite
-- 🎨 Responsive front-end with modern animations
-- 🧱 Follows MVC architecture pattern
-- 🚀 Can be run directly from VS Code
+- Portfolio as the home page
+- Simple post board (CRUD operations)
+- Data stored in SQLite
+- Responsive front-end with modern animations
+- Follows MVC architecture pattern
+- Can be run directly from VS Code
 
 ---
 
-## 🧰 Project Structure
+## Project Structure
 
 ```
 Java_Spring/
@@ -60,7 +60,7 @@ Java_Spring/
 
 ---
 
-## 🚀 Run Locally
+## Run Locally
 
 You can easily run this project using **Visual Studio Code**.
 
