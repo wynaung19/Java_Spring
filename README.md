@@ -15,7 +15,7 @@ The home page displays **my personal portfolio**, while the post system allows:
 - Creating new posts
 - Viewing post details
 - Editing or deleting posts
-- Storing data using **SQLite**
+- Storing data using **MySQL**
 
 ---
 
@@ -26,7 +26,7 @@ The home page displays **my personal portfolio**, while the post system allows:
 | **Backend**      | Java, Spring Boot, Spring MVC                                                  |
 | **Frontend**     | Thymeleaf, Bootstrap, Tailwind CSS, Animate.css                                |
 | **JS Libraries** | CounterUp, Easing, Isotope, Lightbox, OwlCarousel, Typed.js, Waypoints, WOW.js |
-| **Database**     | SQLite                                                                         |
+| **Database**     | MySQL                                                                          |
 | **IDE / Tools**  | Visual Studio Code, Git, GitHub                                                |
 
 ---
@@ -35,7 +35,7 @@ The home page displays **my personal portfolio**, while the post system allows:
 
 - Portfolio as the home page
 - Simple post board (CRUD operations)
-- Data stored in SQLite
+- Data stored in MySQL
 - Responsive front-end with modern animations
 - Follows MVC architecture pattern
 - Can be run directly from VS Code
