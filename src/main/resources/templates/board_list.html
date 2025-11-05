@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>NEW 블로그 게시판</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">NEW 블로그 게시판</h1>
+      <!-- 게시글 리스트 -->
+      <div class="mt-5">
+        <h2>게시글 목록</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>작성일</th>
+              <th>조회수</th>
+              <th>좋아요</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="article : ${articles}">
+              <td th:text="${article.id}"></td>
+              <td th:text="${article.title}"></td>
+              <td th:text="${article.user}"></td>
+              <td th:text="${article.newdate}"></td>
+              <td th:text="${article.count}"></td>
+              <td th:text="${article.likec}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 게시글 추가 폼 -->
+    </div>
+  </body>
+</html>
