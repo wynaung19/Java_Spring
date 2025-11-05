@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <title th:text="${board.title} ?: 'Board View'">Board View</title>
+    <title>Board View</title>
   </head>
   <body>
     <table class="table table-bordered">
@@ -19,6 +19,25 @@
       <tbody>
         <tr th:each="board : ${boards}">
           <td th:text="${board.content}"></td>
+        </tr>
+        <tr th:each="board : ${boards}">
+          <td>
+            <!-- 수정 버튼 -->
+            <a
+              class="btn btn-warning"
+              th:href="@{/board_edit/{id}(id=${board.id})}"
+              >수정</a
+            >
+            <!-- 삭제 버튼 -->
+            <form
+              th:action="@{/api/board_delete/{id}(id=${board.id})}"
+              method="post"
+              style="display: inline"
+            >
+              <input type="hidden" name="_method" value="delete" />
+              <button type="submit" class="btn btn-danger">삭제</button>
+            </form>
+          </td>
         </tr>
       </tbody>
     </table>
