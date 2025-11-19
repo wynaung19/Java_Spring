@@ -1,18 +1,18 @@
 package com.waiyannaung.sku.controller;
 
 import org.springframework.web.bind.annotation.RestController;
-import com.waiyannaung.sku.model.domain.Article;
-import com.waiyannaung.sku.model.service.AddArticleRequest;
-import com.waiyannaung.sku.model.service.BlogService;
+// import com.waiyannaung.sku.model.domain.Article;
+// import com.waiyannaung.sku.model.service.AddArticleRequest;
+// import com.waiyannaung.sku.model.service.BlogService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+// import org.springframework.http.HttpStatus;
+// import org.springframework.http.ResponseEntity;
+// import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController // @Controller + @ResponseBody
 public class BlogRestController {
-    private final BlogService blogService;
+    // private final BlogService blogService;
 
     // @PostMapping("/api/articles") // post 요청
     // public ResponseEntity<Article> addArticle(@ModelAttribute AddArticleRequest
