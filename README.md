@@ -95,3 +95,7 @@ open dashboard and click run
 # or if using Maven:
 mvn spring-boot:run
 ```
+
+# UPDATE 11/19
+
+- Added Login/register
