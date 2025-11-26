@@ -22,6 +22,8 @@ import com.waiyannaung.sku.model.domain.Board;
 import com.waiyannaung.sku.model.service.AddArticleRequest;
 import com.waiyannaung.sku.model.service.BlogService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class BlogController {
     @Autowired
@@ -91,7 +93,13 @@ public class BlogController {
 
     @GetMapping("/board_list") // 새로운 게시판 링크 지정
     public String board_list(Model model, @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "") String keyword) {
+            @RequestParam(defaultValue = "") String keyword, HttpSession session) {
+        String userId = (String) session.getAttribute("userId"); // 세션 아이디 존재 확인
+        String email = (String) session.getAttribute("email");
+        if (userId == null) {
+            return "redirect:/member_login"; // 로그인 페이지로 리다이렉션
+        }
+        System.out.println("세션 userId: " + userId);
         PageRequest pageable = PageRequest.of(page, 3); // 한 페이지의 게시글 수
         Page<Board> list; // Page를 반환
         if (keyword.isEmpty()) {
@@ -103,6 +111,7 @@ public class BlogController {
         model.addAttribute("totalPages", list.getTotalPages()); // 페이지 크기
         model.addAttribute("currentPage", page); // 페이지 번호
         model.addAttribute("keyword", keyword); // 키워드
+        model.addAttribute("email", email);
         return "board_list"; // .HTML 연결
     }
 
