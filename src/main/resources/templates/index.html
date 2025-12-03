@@ -882,7 +882,7 @@
             <h3 class="fw-bold">Seongbuk District ,Seoul ,Korea</h3>
             <hr class="w-100" />
             <p class="mb-2">Call me:</p>
-            <h3 class="fw-bold">+821055555555</h3>
+            <h3 class="fw-bold">+8210594600000</h3>
             <hr class="w-100" />
             <p class="mb-2">Mail me:</p>
             <h3 class="fw-bold">w@wyn.onl</h3>
@@ -918,7 +918,7 @@
               and paste the files, add a little code and you're done.
               <a href="https://htmlcodex.com/contact-form">Download Now</a>.
             </p>
-            <form>
+            <form action="/upload-email" method="post">
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="form-floating">
@@ -928,7 +928,7 @@
                       id="name"
                       placeholder="Your Name"
                     />
-                    <label for="name">Your Name</label>
+                    <label for="name">Name</label>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -937,9 +937,10 @@
                       type="email"
                       class="form-control"
                       id="email"
+                      name="email"
                       placeholder="Your Email"
                     />
-                    <label for="email">Your Email</label>
+                    <label for="email">Email</label>
                   </div>
                 </div>
                 <div class="col-12">
@@ -948,6 +949,7 @@
                       type="text"
                       class="form-control"
                       id="subject"
+                      name="subject"
                       placeholder="Subject"
                     />
                     <label for="subject">Subject</label>
@@ -959,6 +961,7 @@
                       class="form-control"
                       placeholder="Leave a message here"
                       id="message"
+                      name="message"
                       style="height: 100px"
                     ></textarea>
                     <label for="message">Message</label>
@@ -966,7 +969,7 @@
                 </div>
                 <div class="col-12">
                   <button class="btn btn-primary py-3 px-5" type="submit">
-                    Send Message
+                    Send Email
                   </button>
                 </div>
               </div>
