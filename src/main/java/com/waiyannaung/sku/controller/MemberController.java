@@ -43,20 +43,20 @@ public class MemberController {
     public String checkMembers(@ModelAttribute AddMemberRequest request, Model model, HttpServletRequest request2,
             HttpServletResponse response) {
         try {
-            HttpSession session = request2.getSession(false); // 기존 세션 가져오기(존재하지 않으면 null 반환)
-            if (session != null) {
-                session.invalidate(); // 기존 세션 무효화
-                Cookie cookie = new Cookie("JSESSIONID", null); // JSESSIONID 초기화
-                cookie.setPath("/"); // 쿠키 경로
-                cookie.setMaxAge(0); // 쿠키 삭제(0으로 설정)
-                response.addCookie(cookie); // 응답으로 쿠키 전달
-            }
-            session = request2.getSession(true); // 새로운 세션 생성
+            // 새로운 세션을 생성하여 다른 사용자의 세션을 유지함 (다중 사용자 로그인 지원)
+            HttpSession newSession = request2.getSession(true); // 새로운 세션 생성
+
+            // 로그인 인증 확인
             Member member = memberService.loginCheck(request.getEmail(), request.getPassword());
-            String sessionId = UUID.randomUUID().toString(); // 임의의 고유 ID로 세션 생성
+
+            // 현재 사용자의 세션에만 정보 저장 (각 사용자마다 독립적인 세션 데이터)
+            String sessionId = UUID.randomUUID().toString(); // 사용자별 고유 ID
             String email = request.getEmail(); // 이메일 얻기
-            session.setAttribute("userId", sessionId); // 아이디 이름 설정
-            session.setAttribute("email", email); // 이메일 설정
+            newSession.setAttribute("userId", sessionId); // 현재 사용자의 세션 ID 설정
+            newSession.setAttribute("email", email); // 현재 사용자의 이메일 설정
+            newSession.setAttribute("memberEmail", member.getEmail()); // 회원 고유 이메일
+            newSession.setAttribute("userName", member.getName()); // 현재 사용자의 이름 설정
+
             model.addAttribute("member", member); // 로그인 성공 시 회원 정보 전달
             return "redirect:/board_list"; // 로그인 성공 후 이동할 페이지
         } catch (IllegalArgumentException e) {
@@ -68,14 +68,20 @@ public class MemberController {
     @GetMapping("/api/logout") // 로그아웃 버튼 동작
     public String member_logout(Model model, HttpServletRequest request2, HttpServletResponse response) {
         try {
-            HttpSession session = request2.getSession(false); // 기존 세션 가져오기(존재하지 않으면 null 반환)
-            session.invalidate(); // 기존 세션 무효화
-            Cookie cookie = new Cookie("JSESSIONID", null); // 기본 이름은 JSESSIONID
-            cookie.setPath("/"); // 쿠키의 경로
-            cookie.setMaxAge(0); // 쿠키 만료 0이면 삭제
-            response.addCookie(cookie); // 응답에 쿠키 설정
-            session = request2.getSession(true); // 새로운 세션 생성
-            System.out.println("세션 userId: " + session.getAttribute("userId")); // 초기화 후 IDE 터미널에 세션 값 출력
+            HttpSession session = request2.getSession(false); // 현재 사용자의 세션 가져오기
+            if (session != null) {
+                // 현재 사용자의 세션만 제거 (다른 사용자의 세션은 유지)
+                String userEmail = (String) session.getAttribute("email"); // 로그아웃할 사용자의 이메일 저장
+                session.invalidate(); // 현재 사용자의 세션만 무효화
+
+                // 현재 사용자의 쿠키만 삭제 (다른 사용자의 쿠키는 유지)
+                Cookie cookie = new Cookie("JSESSIONID", null); // 세션 쿠키 초기화
+                cookie.setPath("/"); // 쿠키의 경로
+                cookie.setMaxAge(0); // 쿠키 만료 시간을 0으로 설정하여 삭제
+                response.addCookie(cookie); // 응답에 쿠키 설정
+
+                System.out.println("사용자 로그아웃: " + userEmail); // 로그아웃 정보 출력
+            }
             return "login"; // 로그인 페이지로 리다이렉트
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage()); // 에러 메시지 전달

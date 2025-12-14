@@ -24,23 +24,47 @@ public class Board {
     private String count = "";
     @Column(name = "likec", nullable = false) // 좋아요
     private String likec = "";
+    @Column(name = "password", nullable = false) // 게시글 비밀번호 (DB에서 NOT NULL)
+    private String password = ""; // 기본값 빈 문자열
+    @Column(name = "address", nullable = true) // 주소 (선택사항)
+    private String address = ""; // 기본값 빈 문자열
+    @Column(name = "age", nullable = false) // 나이 (DB에서 NOT NULL이므로 기본값 제공)
+    private String age = "0"; // 기본값 "0"
+    @Column(name = "email", nullable = false) // 이메일 (DB에서 NOT NULL이므로 기본값 제공)
+    private String email = ""; // 기본값 빈 문자열
+    @Column(name = "mobile", nullable = false) // 연락처 (DB에서 NOT NULL이므로 기본값 제공)
+    private String mobile = ""; // 기본값 빈 문자열
+    @Column(name = "name", nullable = false) // 이름 (DB에서 NOT NULL이므로 기본값 제공)
+    private String name = ""; // 기본값 빈 문자열
 
     @Builder // 생성자에 빌더 패턴 적용(불변성)
-    public Board(String title, String content, String user, String newdate, String count, String likec) {
+    public Board(String title, String content, String user, String newdate, String count, String likec, String password, String address, String age, String email, String mobile, String name) {
         this.title = title;
         this.content = content;
         this.user = user;
         this.newdate = newdate;
         this.count = count;
         this.likec = likec;
+        this.password = password != null ? password : ""; // 기본값 처리
+        this.address = address != null ? address : ""; // 기본값 처리
+        this.age = age != null ? age : "0"; // 기본값 처리
+        this.email = email != null ? email : ""; // 기본값 처리
+        this.mobile = mobile != null ? mobile : ""; // 기본값 처리
+        this.name = name != null ? name : ""; // 기본값 처리
     }
 
-    public void update(String title, String content, String user, String newdate, String count, String likec) {
+    public void update(String title, String content, String user, String newdate, String count, String likec, String password, String address, String age, String email, String mobile, String name) {
         this.title = title;
         this.content = content;
         this.user = user;
         this.newdate = newdate;
         this.count = count;
         this.likec = likec;
+        this.password = password != null ? password : ""; // 기본값 처리
+        this.address = address != null ? address : ""; // 기본값 처리
+        this.age = age != null ? age : "0"; // 기본값 처리
+        this.email = email != null ? email : ""; // 기본값 처리
+        this.mobile = mobile != null ? mobile : ""; // 기본값 처리
+        this.name = name != null ? name : ""; // 기본값 처리
     }
 }

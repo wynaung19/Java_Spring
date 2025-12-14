@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>파일 업로드 오류</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      .error-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .error-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+      }
+      .error-icon {
+        font-size: 60px;
+        color: #dc3545;
+        margin-bottom: 20px;
+      }
+      .error-title {
+        color: #dc3545;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      .error-message {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      .error-detail {
+        background-color: #f8f9fa;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        margin-bottom: 25px;
+        text-align: left;
+        border-radius: 4px;
+        color: #666;
+        font-size: 14px;
+      }
+      .error-code {
+        display: inline-block;
+        background-color: #e9ecef;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+      .btn-group-custom {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      .btn-group-custom a {
+        flex: 1;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      .btn-back {
+        background-color: #6c757d;
+        color: white;
+      }
+      .btn-back:hover {
+        background-color: #5a6268;
+        color: white;
+      }
+      .btn-home {
+        background-color: #28a745;
+        color: white;
+      }
+      .btn-home:hover {
+        background-color: #218838;
+        color: white;
+      }
+      .error-type-badge {
+        display: inline-block;
+        background-color: #dc3545;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-container">
+      <div class="error-card">
+        <div class="error-icon">⚠️</div>
+
+        <!-- 에러 타입 배지 -->
+        <div class="error-type-badge" th:text="${errorType}"></div>
+
+        <!-- 에러 제목 -->
+        <div class="error-title" th:text="${errorMessage}"></div>
+
+        <!-- 에러 상세 정보 -->
+        <div class="error-detail" th:if="${errorDetail}">
+          <strong>상세정보:</strong><br />
+          <span th:text="${errorDetail}"></span>
+        </div>
+
+        <!-- 에러 코드 -->
+        <div class="error-code">
+          <span>Error Code: FILE_UPLOAD_ERROR</span>
+        </div>
+
+        <!-- 안내 메시지 -->
+        <div class="error-message">
+          <p>파일 업로드에 실패했습니다.</p>
+          <p style="font-size: 14px; color: #666">
+            다음을 확인하고 다시 시도해주세요:
+          </p>
+          <ul
+            style="
+              text-align: left;
+              display: inline-block;
+              font-size: 14px;
+              color: #666;
+            "
+          >
+            <li>파일 크기가 10MB 이하인지 확인</li>
+            <li>
+              허용된 파일 타입인지 확인 (txt, pdf, doc, docx, jpg, png 등)
+            </li>
+            <li>최대 2개의 파일만 업로드 가능</li>
+            <li>파일명에 특수문자가 없는지 확인</li>
+          </ul>
+        </div>
+
+        <!-- 버튼 그룹 -->
+        <div class="btn-group-custom">
+          <a href="javascript:history.back()" class="btn-back"
+            >이전으로 돌아가기</a
+          >
+          <a href="/" class="btn-home">홈으로</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

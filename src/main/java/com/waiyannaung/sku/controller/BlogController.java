@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 // import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,6 +26,7 @@ import com.waiyannaung.sku.model.service.BlogService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
+@Validated
 public class BlogController {
     @Autowired
     BlogService blogService; // 서비스 객체 주입
@@ -81,12 +83,30 @@ public class BlogController {
     }
 
     @GetMapping("/board_write")
-    public String board_write() {
+    public String board_write(Model model, HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+        String userName = (String) session.getAttribute("userName");
+        if (userId == null || userName == null) {
+            return "redirect:/member_login"; // 로그인 필요 시 리다이렉트
+        }
+        model.addAttribute("userId", userId);
+        model.addAttribute("userName", userName);
         return "board_write";
     }
 
     @PostMapping("/api/boards") // 글쓰기 게시판 저장
-    public String addboards(@ModelAttribute AddArticleRequest request) {
+    public String addboards(@ModelAttribute @jakarta.validation.Valid AddArticleRequest request, HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+        String userName = (String) session.getAttribute("userName");
+        String email = (String) session.getAttribute("email");
+        if (userId == null || userName == null) {
+            return "redirect:/member_login"; // 인증 필요
+        }
+        request.setUser(userName); // 작성자 이름을 세션에서 설정
+        request.setName(userName); // DB name 필드도 동일하게 설정
+        request.setEmail(email != null ? email : ""); // 세션 이메일 주입 (DB NOT NULL 대응)
+        request.setCount("0"); // 조회수 초기화
+        request.setLikec("0"); // 좋아요 초기화
         blogService.save(request);
         return "redirect:/board_list"; // .HTML 연결
     }
