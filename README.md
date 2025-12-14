@@ -523,8 +523,3 @@ This project demonstrates:
 - [Bootstrap](https://getbootstrap.com/)
 
 ---
-**Status:** ✅ Production-Ready
-
----
-
-_For support, check troubleshooting section or contact via GitHub issues._
