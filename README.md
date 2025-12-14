@@ -515,25 +515,6 @@ This project demonstrates:
 
 ---
 
-## 👨‍💻 Author
-
-**Wai Yan Naung**  
-Computer Science Student  
-Sungkyul University
-
-📧 Email: [Your Email]  
-🐙 GitHub: https://github.com/wynaung19
-
----
-
-## 🙏 Acknowledgments
-
-- **Professor** - Spring Boot instruction and guidance
-- **Sungkyul University** - Academic resources
-- **Spring Boot Team** - Excellent framework
-- **Bootstrap** - UI framework
-- **MySQL Community** - Database system
-
 ### References
 
 - [Spring Boot Docs](https://docs.spring.io/spring-boot/)
@@ -542,16 +523,6 @@ Sungkyul University
 - [Bootstrap](https://getbootstrap.com/)
 
 ---
-
-## 📄 License
-
-Educational project for university coursework.  
-Not licensed for commercial use.
-
----
-
-**Last Updated:** December 13, 2025  
-**Version:** 1.0.0  
 **Status:** ✅ Production-Ready
 
 ---
